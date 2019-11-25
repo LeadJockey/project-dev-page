@@ -14,10 +14,11 @@
 
 ```
   .
-  ├── Div.js          - for export Div Component
+  ├── Div.js          - for exporting Div Component
   ├── Div.md          - for notice
   ├── Div.stories.js  - for storybook
-  └── Div.styled.js   - for theme & styling
+  └── Div.styled.js   - for theming & styling
+  └── Div.test.js     - for testing
 ```
 
 ***

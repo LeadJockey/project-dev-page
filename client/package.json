@@ -25,13 +25,15 @@
     "@storybook/addon-knobs": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
     "@storybook/addon-notes": "^5.2.5",
-    "@storybook/addon-storysource": "^5.2.5",
+    "@storybook/addon-storysource": "^5.2.6",
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@testing-library/jest-dom": "^4.2.0",
     "@testing-library/react": "^9.3.0",
     "babel-loader": "^8.0.6",
+    "fs": "^0.0.1-security",
     "json-server": "^0.15.1",
+    "path": "^0.12.7",
     "prettier": "^1.19.1"
   },
   "scripts": {
@@ -39,13 +41,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "NODE_PATH=src start-storybook -p 9999"
+    "storybook": "NODE_PATH=src start-storybook -p 9999",
+    "cac": "node scripts/createAtomicComponent"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "prettier": {
-    "printWidth": 150,
+    "printWidth": 100,
     "semi": false,
     "tabWidth": 2,
     "bracketSpacing": true,
