@@ -145,7 +145,7 @@ stories
 `
 }
 const createTest = componentName => ''
-const createSCSS = componentName => {
+const createSCSS = () => {
   return `
 *{margin:0, padding:0}
 `

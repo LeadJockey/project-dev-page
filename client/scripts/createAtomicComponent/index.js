@@ -5,8 +5,7 @@ const {
   createStyledComp,
   createMD,
   createStories,
-  createTest,
-  createSCSS
+  createTest
 } = require('./templates')
 const { ANSI_FONT_RED } = require('./constants')
 
@@ -31,10 +30,13 @@ async function init(unit, name) {
     // files
     await createFile(path.join(targetPath, `${filename}.js`), createBaseComp(filename))
     await createFile(path.join(targetPath, `${filename}.styled.js`), createStyledComp(filename))
-    await createFile(path.join(targetPath, `${filename}.stories.js`), createStories(atomicName, filename))
+    await createFile(
+      path.join(targetPath, `${filename}.stories.js`),
+      createStories(atomicName, filename)
+    )
     await createFile(path.join(targetPath, `${filename}.test.js`), createTest(filename))
     await createFile(path.join(targetPath, `${filename}.md`), createMD(atomicName, filename))
-    await createFile(path.join(targetPath, `${filename}.scss`), createSCSS(filename))
+    // await createFile(path.join(targetPath, `${filename}.scss`), createSCSS())
   } catch (error) {
     console.log(ANSI_FONT_RED, error.message)
   }
