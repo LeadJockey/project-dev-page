@@ -1,58 +1,33 @@
 import styled, { css } from 'styled-components'
 
+// theme mapper 합성어 사용시 _ 사용
 const DIV_THEME = {
-  DEFAULT: 'default',
-  LINE: 'line',
-  WIRE: 'wire'
+  DEFAULT: 'DEFAULT'
 }
-const CSS_DEFAULT = custom => css`
-  width: 100%;
-  height: 100%;
-  ${custom}
-`
 
-const CSS_LINE = css`
-  width: 100%;
-  height: 100%;
-  border: 1px solid red;
-  outline: 1px solid;
-`
-const CSS_WIRE = css`
-  width: 100%;
-  height: 100%;
-  display: table;
-  background: linear-gradient(
-      to top right,
-      transparent calc(50% - 1px),
-      rgb(210, 210, 210) calc(50% - 1px),
-      rgb(210, 210, 210) calc(50% + 1px),
-      transparent calc(50% + 1px)
-    ),
-    linear-gradient(
-      to bottom right,
-      transparent calc(50% - 1px),
-      rgb(210, 210, 210) calc(50% - 1px),
-      rgb(210, 210, 210) calc(50% + 1px),
-      transparent calc(50% + 1px)
-    );
-`
-const getDivCssByTheme = ({ theme, ...rest }) => {
-  if (theme === DIV_THEME.WIRE) return CSS_WIRE
-  if (theme === DIV_THEME.LINE) return CSS_LINE
-  return CSS_DEFAULT
-}
-const THEME_T = {
-  default: CSS_DEFAULT
-}
-const propertiesToStyled = ({ theme, ...rest }) => {
-  return css`
-    ${rest}
+// theme css - 반드시 함수의 형태를 띄어야 합니다. params 로는 customCss 를 받습니다.
+const THEME_CSS = {
+  DEFAULT: customCss => css`
+    width: 100%;
+    height: 100%;
+    ${customCss}
   `
 }
-const a = ({ t, ...rest }) => DIV_THEME[t](propertiesToStyled) || DIV_THEME.DEFAULT
 
-const StyledDiv = styled.div`
-  ${getDivCssByTheme}
-`
+// methods
+const getDivCssByTheme = ({ theme, ...rest }) => {
+  const themeCss = THEME_CSS[theme] || THEME_CSS.DEFAULT
+  const customCss = css`
+    ${rest}
+  `
+  return themeCss(customCss)
+}
+
+function StyledDiv() {
+  return styled.div`
+    ${getDivCssByTheme}
+  `
+}
+
 export { DIV_THEME }
 export default StyledDiv

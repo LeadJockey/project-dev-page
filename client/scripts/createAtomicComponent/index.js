@@ -1,11 +1,12 @@
 const path = require('path')
-const { getArgv, toAtomicType, toCapitalize, createDirectory, createFile } = require('./utils')
+const { getArgv, toAtomicType, toCapitalize, createDirectory, createFile } = require('../utils')
 const {
   createBaseComp,
   createStyledComp,
   createMD,
   createStories,
-  createTest
+  createTest,
+  createSCSS
 } = require('./templates')
 const { ANSI_FONT_RED } = require('./constants')
 
@@ -33,6 +34,7 @@ async function init(unit, name) {
     await createFile(path.join(targetPath, `${filename}.stories.js`), createStories(atomicName, filename))
     await createFile(path.join(targetPath, `${filename}.test.js`), createTest(filename))
     await createFile(path.join(targetPath, `${filename}.md`), createMD(atomicName, filename))
+    await createFile(path.join(targetPath, `${filename}.scss`), createSCSS(filename))
   } catch (error) {
     console.log(ANSI_FONT_RED, error.message)
   }

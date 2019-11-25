@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { ATOMIC_TYPE_MAPPER } = require('./constants')
+const { ATOMIC_TYPE_MAPPER } = require('./createAtomicComponent/constants')
 
 // get
 const getArgv = name => {

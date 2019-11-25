@@ -1,12 +1,14 @@
-import React from 'react'
-import StyledDiv, { DIV_THEME } from './Div.styled'
 
-const Div = ({ children, ...rest }) => <StyledDiv {...rest}>{children}</StyledDiv>
+import React from 'react'
+import StyledDiv from './StyledDiv.styled.js'
+
+function Div ({ children, ...rest }) {
+  return <StyledDiv {...rest}>{children}</StyledDiv>
+}
 
 Div.defaultProps = {
-  theme: DIV_THEME.DEFAULT,
-  disabled: false,
   children: ''
 }
 
 export default Div
+

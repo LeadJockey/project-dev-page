@@ -145,11 +145,17 @@ stories
 `
 }
 const createTest = componentName => ''
+const createSCSS = componentName => {
+  return `
+*{margin:0, padding:0}
+`
+}
 
 module.exports = {
   createBaseComp,
   createStyledComp,
   createMD,
   createStories,
-  createTest
+  createTest,
+  createSCSS
 }

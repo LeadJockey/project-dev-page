@@ -7,7 +7,7 @@ import { ProtectedRoute } from 'core/routes'
 // import { Header, Footer } from 'layout'
 // import { TemplateSample } from 'components/templates'
 import Profile from '../../tests/Profile'
-import { Div, DIV_THEME } from 'components/atoms'
+import { Div, DIV_THEME } from '../components/atoms/example/node_modules/components/atoms'
 
 function Routes(props) {
   return (
