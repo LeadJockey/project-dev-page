@@ -14,7 +14,6 @@ init(getArgv('unit'), getArgv('name'))
 
 // func
 async function init(unit, name) {
-  console.log(unit)
   try {
     // names
     const dirname = toAtomicType(unit) // atom, molecules, organisms, template, pages...
